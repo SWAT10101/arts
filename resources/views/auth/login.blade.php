@@ -5,10 +5,10 @@
 
 <div class="container">
     <div class="row ">
-        <div class="col s6 offset-s3">
+        <div class="col s12 m6 offset-m3">
             <div class="card">
                 <div class="card-content">
-                    <span class="card-title">Login</span>
+                    <h5 class="center-align">Login</h5>
 
                     <div class="row">
                         <form class="col s12" method="POST" action="{{ route('login') }}">
@@ -44,20 +44,20 @@
                             </label>
 
 
-                        
+
                     </div>
-                   
+
                 </div>
 
                 <div class="card-action">
-                <button type="submit" class="btn btn-primary">Login</button>
-                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                    </a>
-                                    @endif
+                    <button type="submit" class="btn btn-primary pink">Login</button>
+                    @if (Route::has('password.request'))
+                    <a class="blue-text text-lighten-1" href="{{ route('password.request') }}">
+                        Forgot Your Password?
+                    </a>
+                    @endif
                 </div>
- </form>
+                </form>
             </div>
 
         </div>
