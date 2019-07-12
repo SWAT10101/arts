@@ -18,13 +18,9 @@
         </div>
 
             @yield('home')
-            @yield('about')
-            @yield('pro')
-            @yield('post')
-            @yield('user')
-            @yield('create')
-            @yield('edit')
             @yield('login')
             @yield('register')
+            @yield('content')
+            @yield('welcome')
 </body>
 </html>
