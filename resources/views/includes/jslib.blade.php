@@ -1,8 +1,8 @@
 <!-- js http -->
-<!--<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>-->
+<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 
 <!-- js https -->
-<script type="text/javascript" src="{{ secure_asset('js/app.js') }}"></script>
+<!--<script type="text/javascript" src="{{ secure_asset('js/app.js') }}"></script>-->
 
 <script>
 $(document).ready(function(){
@@ -11,7 +11,11 @@ $(document).ready(function(){
       coverTrigger: false, // Displays dropdown below the button
       alignment: 'right', // Displays dropdown with edge aligned to the left of button
    });
+
+   $('.sidenav').sidenav();
 });
 
+
+     
 
 </script>

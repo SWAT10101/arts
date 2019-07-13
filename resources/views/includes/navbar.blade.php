@@ -14,6 +14,7 @@
     <div class="nav-wrapper">
 
         <a class="brand-logo ml-3" href="{{ route('home') }}">Art Center</a>
+        
 
         @if (Auth::check())
         <ul id="nav-mobile" class="right hide-on-med-and-down">

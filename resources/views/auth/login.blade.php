@@ -40,13 +40,9 @@
 
                             <label>
                                 <input name="remember" id="remember" type="checkbox" class="filled-in" />
-                                <span class="black-text">Remember Me</span>
+                                <span>Remember Me</span>
                             </label>
-
-
-
                     </div>
-
                 </div>
 
                 <div class="card-action">

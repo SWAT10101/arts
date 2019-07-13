@@ -11,7 +11,8 @@
 </head>
 <body>
     
-        @include('includes.navbar')
+        
+        @include('includes.sidenav')
         
         <div class="container">
             @include('includes.messages')
@@ -20,7 +21,7 @@
             @yield('home')
             @yield('login')
             @yield('register')
-            @yield('content')
+            @yield('content')  <!-- remove this later -->
             @yield('welcome')
 </body>
 </html>
