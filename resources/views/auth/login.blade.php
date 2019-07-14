@@ -39,7 +39,8 @@
                             </div>
 
                             <label>
-                                <input name="remember" id="remember" type="checkbox" class="filled-in" />
+                            
+                                <input name="remember" id="remember" type="checkbox" class="checkbox-orange filled-in" />
                                 <span>Remember Me</span>
                             </label>
                     </div>

@@ -16,7 +16,8 @@
 
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input value="{{ old('name') }}" id="name" type="text" name="name">
+                                    <input value="{{ old('name') }}" id="name" type="text" name="name"
+                                    class="validate @error('name') invalid @enderror">
                                     <label for="name">Name</label>
 
                                     @error('name')

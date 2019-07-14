@@ -25,6 +25,10 @@
       }
     }
 
+    [type="checkbox"].filled-in:checked + span:not(.lever):after{
+     border: 2px solid #E91E63;
+     background-color: #E91E63;
+}
 
 </style>
 
