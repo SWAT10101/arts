@@ -3,10 +3,10 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <!-- Style http -->
-<!--<link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">-->
+<link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 
 <!-- Style https -->
-<link href="{{ secure_asset('css/app.css') }}" rel="stylesheet" type="text/css">
+<!--<link href="{{ secure_asset('css/app.css') }}" rel="stylesheet" type="text/css">-->
 
 <style>
  
@@ -28,6 +28,14 @@
     [type="checkbox"].filled-in:checked + span:not(.lever):after{
      border: 2px solid #E91E63;
      background-color: #E91E63;
+}
+
+.sidenav .collapsible-body > 
+ul:not(.collapsible) > 
+li.active, .sidenav.sidenav-fixed .collapsible-body > 
+ul:not(.collapsible) >
+ li.active  {
+  background-color: #E91E63;
 }
 
 </style>
