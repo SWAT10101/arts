@@ -1,4 +1,3 @@
-@section('sweet_dialog')
 
 @if(session('success'))
 
@@ -44,7 +43,7 @@
 <form id="deleteform" method="GET" action="{{ route('menu.delete', ['id' => session('confirm')]) }}">@csrf</from>
 
     <script>
-       swal({
+       Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
             type: 'warning',
@@ -61,4 +60,3 @@
     </script>
     @endif
 
-    @endsection

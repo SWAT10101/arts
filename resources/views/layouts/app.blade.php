@@ -24,6 +24,6 @@
             @yield('add_menu')
             @yield('view_menu')
             @yield('edit_menu')
-            @yield('sweet_dialog')
+            
 </body>
 </html>
