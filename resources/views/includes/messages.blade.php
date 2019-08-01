@@ -1,3 +1,5 @@
+@section('sweet_dialog')
+
 @if(session('success'))
 
 <script>
@@ -58,3 +60,5 @@
 
     </script>
     @endif
+
+@endsection
