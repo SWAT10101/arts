@@ -1,101 +1,60 @@
-@if ($errors->has('email'))
- <script>       
-      $( document ).ready(function() {
-         alertify.notify('<div class="text-white">{{ $errors->first('email') }}</div>', 'error', 10); 
-     });
- </script>
+@if(session('success'))
+
+<script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'bottom-end',
+        showConfirmButton: false,
+        timer: 5000
+    });
+
+    Toast.fire({
+        type: 'success',
+        title: '{{ session('success') }}',
+    });
+
+</script>
 @endif
 
+@if(session('delete'))
 
-@if ($errors->has('password'))
- <script>
-     $( document ).ready(function() {
-         alertify.notify('<div class="text-white">{{ $errors->first('password') }}</div>', 'error', 10); 
-     });
- </script>
-@endif
+<script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'bottom-end',
+        showConfirmButton: false,
+        timer: 5000
+    });
 
-@if ($errors->has('massage'))
- <script>
-     $( document ).ready(function() {
-         alertify.notify('<div class="text-white">{{ $errors->first('massage') }}</div>', 'error', 10); 
-     });
- </script>
-@endif
+    Toast.fire({
+        type: 'success',
+        title: '{{ session('delete') }}',
+    });
 
-{{--  create post  --}}
-@if ($errors->has('subject'))
- <script>
-     $( document ).ready(function() {
-         alertify.notify('<div class="text-white">{{ $errors->first('subject') }}</div>', 'error', 10); 
-     });
- </script>
-@endif
-@if ($errors->has('firstname'))
- <script>
-     $( document ).ready(function() {
-         alertify.notify('<div class="text-white">{{ $errors->first('firstname') }}</div>', 'error', 10); 
-     });
- </script>
-@endif
-@if ($errors->has('lastname'))
- <script>
-     $( document ).ready(function() {
-         alertify.notify('<div class="text-white">{{ $errors->first('lastname') }}</div>', 'error', 10); 
-     });
- </script>
-@endif
-
-@if ($errors->has('body'))
- <script>
-     $( document ).ready(function() {
-         alertify.notify('<div class="text-white">{{ $errors->first('body') }}</div>', 'error', 10); 
-     });
- </script>
+</script>
 @endif
 
 
 
 
-@if (session('success'))
+@if(session('confirm'))
+<!-- delete form -->
+<form id="deleteform" method="GET" action="{{ route('menu.delete', ['id' => session('confirm')]) }}">@csrf</from>
 
-      < <script>
-        $( document ).ready(function() {
-            alertify.notify('<div class="text-white">{{ session('success') }}</div>', 'success', 10); 
-        });
+    <script>
+     Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+         if (result.value) {
+           document.getElementById("deleteform").submit();
+          }
+     });
+
     </script>
-@endif
-
-@if (session('error'))
-
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        {{ session('error') }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-      </div>
-    
-@endif
-
-<!-- redirct with massage in Authenticate.php file -->
-@if (session('message'))
-
-<script>
-   var mass = "<dic class='text-white'>{{session('message')}} <b>login</b> first !</div>";
-    $( document ).ready(function() {
-        alertify.notify(mass, 'error', 10); 
-    });
-    
-</script>
-@endif
-
-@if (session('welcome'))
-
-<script>
-   var mass = "<dic class='text-white'>{{session('welcome')}}</div>";
-    $( document ).ready(function() {
-        alertify.notify(mass, 'success', 10); 
-    });
-    
-</script>
 @endif

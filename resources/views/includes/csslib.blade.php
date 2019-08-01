@@ -3,10 +3,10 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <!-- Style http -->
-<!--<link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">-->
+<link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 
 <!-- Style https -->
-<link href="{{ secure_asset('css/app.css') }}" rel="stylesheet" type="text/css">
+<!--<link href="{{ secure_asset('css/app.css') }}" rel="stylesheet" type="text/css">-->
 
 <style>
  
@@ -15,8 +15,21 @@
     margin-left: 16px;
  }
 
+ .mt-3{
+   margin-top: 16px;
+ }
+
+ .sidenav{
+   width: 240px;
+ }
+
+ html{
+   background: #F2F4F6;
+ }
+
+ 
  header, body, footer {
-      padding-left: 300px;
+      padding-left: 240px;
     }
 
     @media only screen and (max-width : 992px) {

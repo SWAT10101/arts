@@ -14,7 +14,8 @@ const mix = require('laravel-mix');
 mix.combine([
     'node_modules/jquery/dist/jquery.js',
     'node_modules/materialize-css/dist/js/materialize.js',
-    'node_modules/@fortawesome/fontawesome-free/js/all.min.js'
+    'node_modules/@fortawesome/fontawesome-free/js/all.min.js',
+    'node_modules/sweetalert2/dist/sweetalert2.all.min.js',
     ]
    ,'public/js/app.js');
 

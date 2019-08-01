@@ -13,15 +13,16 @@
     
         
         @include('includes.sidenav')
-        
-        <div class="container">
-            @include('includes.messages')
-        </div>
+        @include('includes.messages')
 
             @yield('home')
             @yield('login')
             @yield('register')
             @yield('content')  <!-- remove this later -->
             @yield('welcome')
+            @yield('restPass')  
+            @yield('add_menu')
+            @yield('view_menu')
+            @yield('edit_menu')
 </body>
 </html>

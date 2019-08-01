@@ -5,6 +5,7 @@ namespace Illuminate\Foundation\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use App\Menu;
 
 trait AuthenticatesUsers
 {
@@ -17,7 +18,7 @@ trait AuthenticatesUsers
      */
     public function showLoginForm()
     {
-        return view('auth.login');
+        return view('auth.login')->with('menus', Menu::all()->sortBy('menu_name'));
     }
 
     /**

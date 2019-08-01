@@ -2,9 +2,10 @@
     @csrf
 </form>
 
+<!-- Top nav bar -->
 <nav class="blue">
     <div class="nav-wrapper">
-        <a class="brand-logo ml-3" href="{{ route('home') }}"><img width="32px" height="32px" src="images/logo1.png"
+        <a class="brand-logo ml-3" href="{{ route('home') }}"><img width="32px" height="32px" src="{{ asset('/images/logo1.png') }}"
                 style="margin-right:10px;"></img>Arts Centre Central Gen. Trad. & Cont. w.l.l.</a>
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
@@ -26,11 +27,38 @@
         <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
             href="{{ route('logout') }}" class="waves-effect waves-light btn-small pink">Logout</a>
     </li>
+
+
+    <ul class="collapsible">
+        <li class="{{ (request()->is('menu/*')) ? 'active' : '' }}">
+
+            <div class="collapsible-header white-text waves-effect waves-light"><b>Menus</b></div>
+            <div class="collapsible-body blue">
+                <ul>
+                    <li class="{{ (request()->is('menu/add')) ? 'active' : '' }}"><a class = "white-text waves-effect waves-light" href="{{ route('menu.add') }}">Add</a></li>
+                    <li class="{{ (request()->is('menu/view')) ? 'active' : '' }}"><a class = "white-text waves-effect waves-light" href="{{ route('menu.view')}}">View & Edit</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+
+    @if(isset($menus) && $menus->count())
+     @foreach ($menus as $menu)
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header white-text waves-effect waves-light"><b>{{ $menu->menu_name }}</b></div>   
+        </li>
+      </ul>    
+     @endforeach
     @endif
+    
+    @endif
+
+
 
     @if(!Auth::check())
 
-    <li><img style="margin: 5% 33%;" src="images/sidelogo.png"></img></li>
+    <li><img style="margin: 5% 33%;" src="{{ asset('images/sidelogo.png')}}"></img></li>
     <div class="divider"></div>
     <div style="margin-bottom: 0px;" class="row">
         <div class="col s4">
@@ -51,8 +79,23 @@
 
     <li><a class="white-text waves-effect waves-light" href="{{ route('login') }}">Login</a></li>
     <li><a class="white-text waves-effect waves-light" href="{{ route('register') }}">Register</a></li>
+
+    @if(isset($menus) && $menus->count())
+     @foreach ($menus as $menu)
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header white-text waves-effect waves-light"><b>{{ $menu->menu_name }}</b></div>   
+        </li>
+      </ul>    
+     @endforeach
+    @endif
+    
     @endif
 
+    
+
+    
+    
     <!-- Arts Materials menu and sub menu -->
     <ul class="collapsible" data-collapsible="accordion">
         <li>
@@ -68,169 +111,5 @@
             </div>
         </li>
     </ul>
-
-    <!-- Engineering Materials menu and sub menu -->
-    <ul class="collapsible" data-collapsible="accordion">
-        <li>
-            <div class="collapsible-header white-text waves-effect waves-light"><b>Engineering Materials</b></div>
-            <div class="collapsible-body blue">
-                <ul>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">Engineering Drawing Tables</a></li>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">Schemes Cabinets</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-
-   <!-- Papers menu and sub menu -->
-    <ul class="collapsible" data-collapsible="accordion">
-        <li>
-            <div class="collapsible-header white-text waves-effect waves-light"><b>Papers</b></div>
-            <div class="collapsible-body blue">
-                <ul>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-
-    <!-- Ceramics menu and sub menu -->
-    <ul class="collapsible" data-collapsible="accordion">
-        <li>
-            <div class="collapsible-header white-text waves-effect waves-light"><b>Ceramics</b></div>
-            <div class="collapsible-body blue">
-                <ul>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-
-
-    <!-- Brushes menu and sub menu -->
-    <ul class="collapsible" data-collapsible="accordion">
-        <li>
-            <div class="collapsible-header white-text waves-effect waves-light"><b>Brushes</b></div>
-            <div class="collapsible-body blue">
-                <ul>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-
-
-    <!-- Stationery menu and sub menu -->
-    <ul class="collapsible" data-collapsible="accordion">
-        <li>
-            <div class="collapsible-header white-text waves-effect waves-light"><b>Stationery</b></div>
-            <div class="collapsible-body blue">
-                <ul>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-  
-    <!-- Drawing Stand menu and sub menu -->
-    <ul class="collapsible" data-collapsible="accordion">
-        <li>
-            <div class="collapsible-header white-text waves-effect waves-light"><b>Drawing Stand</b></div>
-            <div class="collapsible-body blue">
-                <ul>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-
-    <!-- COPIC Pens menu and sub menu -->
-    <ul class="collapsible" data-collapsible="accordion">
-        <li>
-            <div class="collapsible-header white-text waves-effect waves-light"><b>COPIC Pens</b></div>
-            <div class="collapsible-body blue">
-                <ul>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-
-    <!-- Balsa Wood menu and sub menu -->
-    <ul class="collapsible" data-collapsible="accordion">
-        <li>
-            <div class="collapsible-header white-text waves-effect waves-light"><b>Balsa Wood</b></div>
-            <div class="collapsible-body blue">
-                <ul>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-
-
-    <!-- Ceramic Ovens menu and sub menu -->
-    <ul class="collapsible" data-collapsible="accordion">
-        <li>
-            <div class="collapsible-header white-text waves-effect waves-light"><b>Ceramic Ovens</b></div>
-            <div class="collapsible-body blue">
-                <ul>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-
-
-    <!-- Minne Ovens menu and sub menu -->
-    <ul class="collapsible" data-collapsible="accordion">
-        <li>
-            <div class="collapsible-header white-text waves-effect waves-light"><b>Minne Ovens</b></div>
-            <div class="collapsible-body blue">
-                <ul>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-
-
-    <!-- Ceramic Tools menu and sub menu -->
-    <ul class="collapsible" data-collapsible="accordion">
-        <li>
-            <div class="collapsible-header white-text waves-effect waves-light"><b>Ceramic Tools</b></div>
-            <div class="collapsible-body blue">
-                <ul>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-
-
-    <!-- Ceramic Weels menu and sub menu -->
-    <ul class="collapsible" data-collapsible="accordion">
-        <li>
-            <div class="collapsible-header white-text waves-effect waves-light"><b>Ceramic Weels</b></div>
-            <div class="collapsible-body blue">
-                <ul>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                    <li><a class = "white-text waves-effect waves-light" href="#!">sub item well add here.</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-
- 
 
 </ul>
