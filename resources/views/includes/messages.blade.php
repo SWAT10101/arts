@@ -61,4 +61,4 @@
     </script>
     @endif
 
-@endsection
+    @endsection
