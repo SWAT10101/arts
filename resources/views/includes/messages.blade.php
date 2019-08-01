@@ -42,7 +42,7 @@
 <form id="deleteform" method="GET" action="{{ route('menu.delete', ['id' => session('confirm')]) }}">@csrf</from>
 
     <script>
-        Swal.fire({
+        swal({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
             type: 'warning',
