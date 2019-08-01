@@ -10,7 +10,7 @@
 
     Toast.fire({
         type: 'success',
-        title: '{{ session('success') }}',
+        title: '{{ session(' success ') }}',
     });
 
 </script>
@@ -28,7 +28,7 @@
 
     Toast.fire({
         type: 'success',
-        title: '{{ session('delete') }}',
+        title: '{{ session(' delete ') }}',
     });
 
 </script>
@@ -42,19 +42,19 @@
 <form id="deleteform" method="GET" action="{{ route('menu.delete', ['id' => session('confirm')]) }}">@csrf</from>
 
     <script>
-     swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-         if (result.value) {
-           document.getElementById("deleteform").submit();
-          }
-     });
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                document.getElementById("deleteform").submit();
+            }
+        });
 
     </script>
-@endif
+    @endif
