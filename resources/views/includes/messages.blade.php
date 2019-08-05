@@ -1,20 +1,20 @@
 
 @if(session('success'))
 
-<script>
+ <script>
     const Toast = Swal.mixin({
         toast: true,
         position: 'bottom-end',
         showConfirmButton: false,
-        timer: 5000
+        timer: 10000
     });
 
     Toast.fire({
         type: 'success',
-        title: '{{ session(' success ') }}',
+        title: '{{ session('success') }}',
     });
 
-</script>
+ </script>
 @endif
 
 @if(session('delete'))
@@ -24,12 +24,12 @@
         toast: true,
         position: 'bottom-end',
         showConfirmButton: false,
-        timer: 5000
+        timer: 10000
     });
 
     Toast.fire({
         type: 'success',
-        title: '{{ session(' delete ') }}',
+        title: '{{ session('delete') }}',
     });
 
 </script>
